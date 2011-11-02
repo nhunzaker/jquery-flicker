@@ -63,7 +63,7 @@
         } else if (typeof method === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
-            $.error( 'Method "' +  method + '" does not exist in the flickr plugin!');
+            $.error( 'Method "' +  method + '" does not exist in the flicker plugin!');
         }
 
     }
