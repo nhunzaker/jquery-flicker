@@ -8,3 +8,4 @@ $(".selector").flicker();
 ## For future releases:
 
 - Greater control of flickering parameters
+- Better stop and start functions
