@@ -3,9 +3,13 @@
 
 ``` javascript
 
+// Basic Usage:
+// -------------------------------------------------- //
+
 $(".selector").flicker();
 
-// Options
+
+// Options:
 // ----------------------------------------------- //
 
 $.fn.flicker.defaults = {
@@ -14,7 +18,7 @@ $.fn.flicker.defaults = {
 };
 
 
-// Methods
+// Methods:
 // -------------------------------------------------- //
 
 $(".selector").flicker(); // Start
