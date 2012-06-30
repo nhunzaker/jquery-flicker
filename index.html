@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>jQuery Flicker</title>
+
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        body {
+            color: #333;
+            font-family: sans-serif;
+            margin: 40px auto;
+            text-align: center;
+            width: 600px;
+        }
+
+        h1 {
+            font-size: 200px;
+        }
+        
+        button {
+            border: 1px solid #111;
+            border-radius: 4px;
+            background: #333;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 45px;
+            padding: 0 1em;
+        }
+        
+        button:hover {
+            background: #555;
+        }
+
+        button:active {
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.45);
+        }
+        
+    </style>
+
+</head>
+<body>
+
+    <h1>Flicker</h1>
+
+    <button id="js-start">Start</button>
+    <button id="js-stop">Stop</button>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="jquery.flicker.js"></script>
+
+    <script>
+        
+        (function() {
+        
+            $("h1").flicker({
+                minOpacity: 0.2,
+                maxOpacity: 0.9
+            });
+        
+            $("#js-start").click(function() {
+                $("h1").flicker({
+                    minOpacity: 0.2,
+                    maxOpacity: 0.9
+                });
+            });
+
+            $("#js-stop").click(function() {
+               $("h1").flicker("stop");
+            });
+        
+        }());
+        
+    </script>
+</body>
+</html>
