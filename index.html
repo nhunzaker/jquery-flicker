@@ -22,7 +22,7 @@
         }
 
         h1 {
-            font-size: 200px;
+            font-size: 100px;
         }
         
         button {
@@ -49,11 +49,20 @@
 
 </head>
 <body>
-
-    <h1>Flicker</h1>
-
-    <button id="js-start">Start</button>
-    <button id="js-stop">Stop</button>
+    
+    <section>    
+        <h1 id="one">Flicker One</h1>
+    
+        <button class="js-start" data-target="#one">Start</button>
+        <button class="js-stop" data-target="#one">Stop</button>
+    </section>
+    
+    <section>    
+        <h1 id="two">Flicker One</h1>
+    
+        <button class="js-start" data-target="#two">Start</button>
+        <button class="js-stop" data-target="#two">Stop</button>
+    </section>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="jquery.flicker.js"></script>
@@ -62,20 +71,16 @@
         
         (function() {
         
-            $("h1").flicker({
-                minOpacity: 0.2,
-                maxOpacity: 0.9
-            });
+            $("h1").flicker();
         
-            $("#js-start").click(function() {
-                $("h1").flicker({
-                    minOpacity: 0.2,
-                    maxOpacity: 0.9
-                });
+            $(".js-start").click(function() {
+                var target = $(this).data("target")
+                $(target).flicker();
             });
 
-            $("#js-stop").click(function() {
-               $("h1").flicker("stop");
+            $(".js-stop").click(function() {
+               var target = $(this).data("target");
+               $(target).flicker("stop");
             });
         
         }());
