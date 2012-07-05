@@ -51,19 +51,18 @@
             // A recursive function to simulate a flickering effect
             flick: function flick ($target) {
         
-                var options     = $target.data("flicker"),
+                var o     = $target.data("flicker"),
                     probability = Math.random(),
-                    transition  = Math.random() * options.transition,
-                    delay       = Math.random() * options.delay,
-                    minOpacity  = 1 - (Math.random() * (1 - options.minOpacity)),
-                    maxOpacity  = 1 - (Math.random() * (1 - options.maxOpacity));
+                    transition  = Math.random() * o.transition,
+                    delay       = Math.random() * o.delay,
+                    flash       = Math.random() * (o.maxOpacity - o.minOpacity) + o.minOpacity;
                 
                 // If the 'continue' property of deliberatly set to false, exit
                 if ($target.data("flicker").active === false) {
                     return false;
                 }
 
-                if (probability > options.probability) {
+                if (probability > o.probability) {
                     
                     setTimeout(function() {
                         flick($target);
@@ -71,9 +70,9 @@
                     
                 } else {
 
-                    $target.animate({ opacity: minOpacity}, transition)
+                    $target.animate({ opacity: flash}, transition)
                            .delay(delay)
-                           .animate({ opacity: maxOpacity }, transition, function() {
+                           .animate({ opacity: o.maxOpacity }, transition, function() {
                         
                         flick($target);
                         
@@ -85,7 +84,7 @@
 
             stop: function() {
                 this.each(function() {
-                    $(this).text("stopped").data("flicker").active = false;
+                    $(this).data("flicker").active = false;
                 });
             }
 
